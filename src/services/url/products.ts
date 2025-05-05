@@ -11,4 +11,4 @@ export const getSearchProductsURL = (query: string, limit: number, skip: number)
 
 export const getCategoryProductsURL = (category: string, limit: number, skip: number) =>
   `${CATEGORY_PRODUCTS_URL}/${category}?limit=${limit}&skip=${skip}`
-export const getProductDetailsURL = (id: string) => `${LIST_PRODUCTS_URL}/${id}`
+export const getProductDetailsURL = (id?: string) => `${LIST_PRODUCTS_URL}/${id}`

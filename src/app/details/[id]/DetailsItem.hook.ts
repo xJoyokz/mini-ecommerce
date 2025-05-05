@@ -3,8 +3,11 @@
 import { getProductDetailsURL } from '@/services/url/products'
 import { useState, useEffect } from 'react'
 import { Product } from './DetailsItem.type'
+import { useParams } from 'next/navigation'
 
-export const useProductDetails = (id: string) => {
+export const useProductDetails = () => {
+  const { id } = useParams()
+
   const [product, setProduct] = useState<Product | null>(null)
   const [loading, setLoading] = useState<boolean>(true)
   const [error, setError] = useState<string | null>(null)
@@ -14,7 +17,7 @@ export const useProductDetails = (id: string) => {
     const fetchProductDetails = async () => {
       try {
         setLoading(true)
-        const response = await fetch(getProductDetailsURL(id))
+        const response = await fetch(getProductDetailsURL(id?.toString()))
 
         if (!response.ok) {
           throw new Error(`Failed to fetch product: ${response.status}`)
