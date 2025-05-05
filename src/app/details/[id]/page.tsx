@@ -7,5 +7,5 @@ interface ProductPageProps {
 }
 
 export default function ProductPage({ params }: ProductPageProps) {
-  return <DetailsItem id={params.id} />
+  return <DetailsItem id={params?.id} />
 }
