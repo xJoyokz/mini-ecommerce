@@ -70,6 +70,8 @@ yarn dev
 - Product search
 - Product details view
 - Responsive design
+- Payment
+- Add new product
 
 ## API
 
