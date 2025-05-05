@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Mini E-commerce
+
+## Overview
+
+**Charavibe** is a simple e-commerce application built as a project assessment. It showcases a catalog of products with features like filtering, searching, and product details. This project is built using:
+
+- **Framework:** Next.js 15.2.4
+- **UI Library:** Ant Design 5.24.9
+- **Frontend:** React 19.0.0
+- **Styling:** Sass and Tailwind CSS 4.1.3
+- **HTTP Client:** Axios
+- **Data Fetching:** SWR
+- **Linting & Formatting:** ESLint 9 / Prettier
+- **Type Safety:** TypeScript 5
+
+## Prerequisites
+
+Ensure you have the following installed:
+
+- Node.js (compatible with React 19)
+- npm or yarn
 
 ## Getting Started
 
-First, run the development server:
+### Clone the repo
+
+```bash
+git clone git@github.com:xJoyokz/mini-ecommerce.git
+cd mini-ecommerce
+```
+
+### Install dependencies
+
+```bash
+npm install
+# or
+yarn install
+```
+
+### Run the development server
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build for production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+# or
+yarn build
+```
 
-## Learn More
+### Start the production server
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm dev
+# or
+yarn dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Features
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Product listing with pagination
+- Category filtering
+- Product search
+- Product details view
+- Responsive design
 
-## Deploy on Vercel
+## API
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project uses [DummyJSON](https://dummyjson.com/) for product data.
