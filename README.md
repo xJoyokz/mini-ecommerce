@@ -46,6 +46,7 @@ yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Or [https://mini-ecommerce-sigma-ebon.vercel.app] to see the live result.
 
 ### Build for production
 
