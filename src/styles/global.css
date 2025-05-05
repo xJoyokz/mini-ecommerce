@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import 'tailwindcss';
+@import './button.css';
+@import './checkbox.css';
+
+body {
+  background: white !important;
+  color: black !important;
+  font-family: 'Poppins', sans-serif;
+}
+
+.light-text {
+  font-weight: 300;
+}
+.regular-text {
+  font-weight: 400;
+}
