@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Details - Mini Ecommerce',
-  description: 'Product details',
+  title: 'Cart - Mini Ecommerce',
+  description: 'Cart',
 }

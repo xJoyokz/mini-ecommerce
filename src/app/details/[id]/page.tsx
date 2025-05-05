@@ -1,11 +1,10 @@
 import DetailsItem from './DetailsItem'
 
-interface ProductPageProps {
-  params: {
-    id: string
-  }
+type Props = {
+  params: { id: string }
+  searchParams: { [key: string]: string | string[] | undefined }
 }
 
-export default function ProductPage({ params }: ProductPageProps) {
+export default function ProductPage({ params }: Props) {
   return <DetailsItem id={params?.id} />
 }
