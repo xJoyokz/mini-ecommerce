@@ -1,0 +1,62 @@
+/* Custom checkbox styles */
+.ant-checkbox-checked .ant-checkbox-inner {
+  background-color: #000000 !important;
+  border-color: #000000 !important;
+}
+
+.ant-checkbox-checked .ant-checkbox-inner::after {
+  border-color: #ffffff !important;
+}
+
+/* Hover states */
+.ant-checkbox:hover .ant-checkbox-inner {
+  border-color: #000000 !important;
+}
+
+/* Focus states */
+.ant-checkbox-focused .ant-checkbox-inner {
+  border-color: #000000 !important;
+}
+
+/* Custom Collapse/Accordion styles */
+.ant-collapse {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+.ant-collapse > .ant-collapse-item {
+  border: none !important;
+  margin-bottom: 8px;
+}
+
+.ant-collapse > .ant-collapse-item:last-child {
+  margin-bottom: 0;
+}
+
+.ant-collapse-header {
+  padding: 12px 0 !important;
+  border: none !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+.ant-collapse-header:hover {
+  color: #000 !important;
+}
+
+.ant-collapse-content {
+  border: none !important;
+}
+
+.ant-collapse-content > .ant-collapse-content-box {
+  padding: 8px 0 !important;
+}
+
+/* Panel header title styles */
+.ant-collapse-header .ant-typography {
+  transition: all 0.2s ease-in-out !important;
+}
+
+.ant-collapse-item-active .ant-collapse-header .ant-typography {
+  color: #000 !important;
+  font-weight: 500 !important;
+}
