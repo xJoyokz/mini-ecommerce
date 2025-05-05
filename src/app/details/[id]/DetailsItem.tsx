@@ -4,12 +4,8 @@ import React from 'react'
 import Image from 'next/image'
 import { useProductDetails } from './DetailsItem.hook'
 
-interface DetailsItemProps {
-  id: string
-}
-
-const DetailsItem: React.FC<DetailsItemProps> = ({ id }) => {
-  const { product, loading, error, selectedImageIndex, handleImageSelect } = useProductDetails(id)
+const DetailsItem: React.FC = () => {
+  const { product, loading, error, selectedImageIndex, handleImageSelect } = useProductDetails()
 
   if (loading) {
     return (
