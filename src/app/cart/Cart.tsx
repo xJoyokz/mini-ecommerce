@@ -1,5 +1,5 @@
 'use client'
 
 export default function Cart() {
-  return <div>Ini cart Update</div>
+  return <div>Ini update cart deployment</div>
 }
