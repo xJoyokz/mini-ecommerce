@@ -4,7 +4,6 @@ import type { CheckboxChangeEvent } from 'antd/es/checkbox'
 import { SideBarProps } from './SideBar.type'
 
 const { Title } = Typography
-const { Panel } = Collapse
 
 // Custom expand icon component
 const ExpandIcon = ({ isActive }: { isActive?: boolean }) => (
@@ -45,6 +44,40 @@ const Sidebar: React.FC<SideBarProps> = ({
     }
   }
 
+  // Define the items for the Collapse component
+  const collapseItems = [
+    {
+      key: 'category',
+      label: (
+        <Title level={5} className='m-0 text-base capitalize'>
+          Category
+        </Title>
+      ),
+      children: (
+        <div className=''>
+          {categories.map((category, index) => (
+            <div
+              key={`${category.value || index}`}
+              className='mb-2 flex items-center justify-between'
+            >
+              <Checkbox
+                checked={selectedCategory === category.value}
+                onChange={(e) => handleCategoryChange(e, category.value)}
+                className='category-checkbox flex-grow'
+              >
+                <span className='text-sm capitalize'>{category.label || `Category ${index}`}</span>
+              </Checkbox>
+              {category.count > 0 && (
+                <span className='text-xs text-gray-400'>({category.count})</span>
+              )}
+            </div>
+          ))}
+        </div>
+      ),
+      className: 'mb-4',
+    },
+  ]
+
   return (
     <div className='sidebar-container font-poppins'>
       <Title level={5} className='mb-4 text-sm font-medium text-gray-500 uppercase'>
@@ -57,39 +90,8 @@ const Sidebar: React.FC<SideBarProps> = ({
         className='bg-transparent'
         expandIconPosition='end'
         expandIcon={({ isActive }) => <ExpandIcon isActive={isActive} />}
-      >
-        <Panel
-          header={
-            <Title level={5} className='m-0 text-base capitalize'>
-              Category
-            </Title>
-          }
-          key='category'
-          className='mb-4'
-        >
-          <div className=''>
-            {categories.map((category, index) => (
-              <div
-                key={`${category.value || index}`}
-                className='mb-2 flex items-center justify-between'
-              >
-                <Checkbox
-                  checked={selectedCategory === category.value}
-                  onChange={(e) => handleCategoryChange(e, category.value)}
-                  className='category-checkbox flex-grow'
-                >
-                  <span className='text-sm capitalize'>
-                    {category.label || `Category ${index}`}
-                  </span>
-                </Checkbox>
-                {category.count > 0 && (
-                  <span className='text-xs text-gray-400'>({category.count})</span>
-                )}
-              </div>
-            ))}
-          </div>
-        </Panel>
-      </Collapse>
+        items={collapseItems}
+      />
     </div>
   )
 }

@@ -1,8 +1,12 @@
+'use client'
+
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { useCartStore } from '@/store/cartStore'
 
 export default function Header() {
+  const totalItems = useCartStore((state) => state.totalItems)
   return (
     <div className='flex items-center justify-between bg-white py-4'>
       <Link href='/' className='flex items-center text-lg font-bold text-orange-500'>
@@ -58,9 +62,11 @@ export default function Header() {
               strokeLinejoin='round'
             />
           </svg>
-          <span className='absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full bg-orange-500 text-xs text-white'>
-            2
-          </span>
+          {totalItems > 0 && (
+            <span className='absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full bg-orange-500 text-xs text-white'>
+              {totalItems}
+            </span>
+          )}
         </Link>
 
         <div className='relative'>
