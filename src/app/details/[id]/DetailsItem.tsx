@@ -5,7 +5,19 @@ import Image from 'next/image'
 import { useProductDetails } from './DetailsItem.hook'
 
 const DetailsItem: React.FC = () => {
-  const { product, loading, error, selectedImageIndex, handleImageSelect } = useProductDetails()
+  const {
+    product,
+    loading,
+    error,
+    selectedImageIndex,
+    handleImageSelect,
+    handleAddToCart,
+    isInCart,
+    quantity,
+    handleIncreaseQuantity,
+    handleDecreaseQuantity,
+    handleRemoveFromCart,
+  } = useProductDetails()
 
   if (loading) {
     return (
@@ -38,7 +50,6 @@ const DetailsItem: React.FC = () => {
 
   return (
     <div className='container mx-auto'>
-      {/* Back button */}
       <div className='mt-4 mb-4'>
         <button
           onClick={() => window.history.back()}
@@ -107,9 +118,40 @@ const DetailsItem: React.FC = () => {
 
           <p className='mb-8 text-gray-700'>{product.description}</p>
 
-          <button className='w-full rounded-lg bg-gray-900 px-6 py-3 text-lg font-medium text-white transition-colors hover:bg-gray-800'>
-            Add to Cart
-          </button>
+          {isInCart ? (
+            <div className='space-y-4'>
+              <div className='flex items-center justify-between'>
+                <div className='flex items-center rounded-lg border border-gray-300'>
+                  <button
+                    onClick={handleDecreaseQuantity}
+                    className='px-4 py-2 text-xl font-medium hover:bg-gray-100'
+                  >
+                    -
+                  </button>
+                  <span className='px-4 py-2 text-lg'>{quantity}</span>
+                  <button
+                    onClick={handleIncreaseQuantity}
+                    className='px-4 py-2 text-xl font-medium hover:bg-gray-100'
+                  >
+                    +
+                  </button>
+                </div>
+                <button
+                  onClick={handleRemoveFromCart}
+                  className='rounded-lg border border-red-600 px-6 py-3 text-lg font-medium text-red-600 transition-colors hover:bg-red-50'
+                >
+                  Remove from Cart
+                </button>
+              </div>
+            </div>
+          ) : (
+            <button
+              onClick={handleAddToCart}
+              className='w-full cursor-pointer rounded-lg bg-gray-900 px-6 py-3 text-lg font-medium text-white transition-colors hover:bg-gray-800'
+            >
+              Add to Cart
+            </button>
+          )}
         </div>
       </div>
     </div>
