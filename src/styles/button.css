@@ -5,6 +5,17 @@
 }
 
 /* Custom variant styling on top of Ant Design */
+.btn-primary {
+  background-color: #0f172a !important;
+  border-color: #0f172a !important;
+  color: white !important;
+}
+
+.btn-primary:hover {
+  background-color: #1e293b !important;
+  border-color: #1e293b !important;
+}
+
 .btn-success {
   background-color: #10b981 !important;
   border-color: #10b981 !important;
@@ -13,6 +24,17 @@
 .btn-success:hover {
   background-color: #059669 !important;
   border-color: #059669 !important;
+}
+
+.btn-secondary {
+  background-color: #f3f4f6 !important;
+  border-color: #f3f4f6 !important;
+  color: #111827 !important;
+}
+
+.btn-secondary:hover {
+  background-color: #e5e7eb !important;
+  border-color: #e5e7eb !important;
 }
 
 .btn-outline:hover {
