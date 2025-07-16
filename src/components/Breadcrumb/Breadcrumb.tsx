@@ -16,7 +16,6 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ productName }) => {
   const getItems = (): BreadcrumbItem[] => {
     const paths = pathname.split('/').filter((path) => path)
 
-    // Start with back button instead of Home
     const items: BreadcrumbItem[] = [{ label: 'Back', href: '#', isBackButton: true }]
 
     paths.forEach((path, index) => {
@@ -40,7 +39,17 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ productName }) => {
       }
     })
 
-    // Add Payment item if current page is Cart
+    if (pathname === '/payment') {
+      const cartItemIndex = items.findIndex((item) => item.label === 'Cart')
+      if (cartItemIndex === -1) {
+        items.splice(items.length - 1, 0, {
+          label: 'Cart',
+          href: '/cart',
+          isActive: false,
+        })
+      }
+    }
+
     if (pathname === '/cart') {
       items.push({
         label: 'Payment',
@@ -58,11 +67,11 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ productName }) => {
     <nav className='flex items-center text-sm'>
       {items.map((item, index) => (
         <React.Fragment key={item.href + index}>
-          {index > 0 && <span className='mx-2 text-gray-500'>{'>'}</span>}
+          {index > 0 && index > 1 && <span className='mx-2 text-gray-500'>{'>'}</span>}
           {item.isBackButton ? (
             <button
               onClick={handleGoBack}
-              className='flex cursor-pointer items-center text-gray-700 hover:text-gray-900'
+              className='flex cursor-pointer items-center pr-4 text-gray-700 hover:text-gray-900'
             >
               <svg
                 xmlns='http://www.w3.org/2000/svg'
