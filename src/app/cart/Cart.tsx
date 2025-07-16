@@ -17,6 +17,7 @@ export default function Cart() {
     handleRemoveItem,
     isChecked,
     setIsChecked,
+    navigateToPayment,
   } = useCart()
 
   return (
@@ -81,6 +82,7 @@ export default function Cart() {
               <button
                 className='w-full cursor-pointer rounded bg-black py-3 text-white hover:bg-gray-800 disabled:cursor-not-allowed disabled:bg-gray-400'
                 disabled={!isChecked}
+                onClick={navigateToPayment}
               >
                 Continue
               </button>
