@@ -2,6 +2,7 @@ export const LIST_CATEGORIES_URL = 'https://dummyjson.com/products/categories'
 export const LIST_PRODUCTS_URL = 'https://dummyjson.com/products'
 export const SEARCH_PRODUCTS_URL = 'https://dummyjson.com/products/search'
 export const CATEGORY_PRODUCTS_URL = 'https://dummyjson.com/products/category'
+export const ADD_NEW_PRODUCT_URL = 'https://dummyjson.com/products/add'
 
 export const getProductsWithPaginationURL = (limit: number, skip: number) =>
   `${LIST_PRODUCTS_URL}?limit=${limit}&skip=${skip}`

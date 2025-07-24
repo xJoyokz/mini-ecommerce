@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react'
 import { useCartStore } from '@/store/cartStore'
+import { useRouter } from 'next/navigation'
 
 export const useCart = () => {
+  const router = useRouter()
+
   const { items, removeItem, updateQuantity } = useCartStore()
   const [subtotal, setSubtotal] = useState(0)
   const shipping = 10
@@ -26,6 +29,10 @@ export const useCart = () => {
     removeItem(id)
   }
 
+  const navigateToPayment = () => {
+    router.push('/payment')
+  }
+
   return {
     items,
     subtotal,
@@ -35,5 +42,6 @@ export const useCart = () => {
     handleRemoveItem,
     isChecked,
     setIsChecked,
+    navigateToPayment,
   }
 }

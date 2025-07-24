@@ -1,10 +1,13 @@
 'use client'
 
 import React from 'react'
+import Link from 'next/link'
 import { Row, Col, Spin, Input, Pagination, Empty, Alert } from 'antd'
-import { useProductList } from './ListItem.hook'
+
 import Sidebar from '@/components/SideBar/SideBar'
 import Card from '@/components/Card/Card'
+
+import { useProductList } from './ListItem.hook'
 
 const { Search } = Input
 
@@ -56,7 +59,11 @@ export default function ListPage() {
                   onSearch={handleSearch}
                 />
               </div>
-              <button className='flex items-center gap-2 bg-white px-4 py-2 text-sm text-orange-400'>
+              <Link
+                href='/new-product'
+                className='flex items-center gap-2 bg-white px-4 py-2 text-sm text-orange-400'
+                style={{ color: '#ff7800' }}
+              >
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   width='16'
@@ -72,7 +79,7 @@ export default function ListPage() {
                   <line x1='5' y1='12' x2='19' y2='12'></line>
                 </svg>
                 <span className='mr-2 text-sm'>Add Product</span>
-              </button>
+              </Link>
             </div>
           </div>
           {error && (

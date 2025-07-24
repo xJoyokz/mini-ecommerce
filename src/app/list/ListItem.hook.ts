@@ -1,15 +1,17 @@
 'use client'
 
 import { useState, useEffect, useCallback } from 'react'
+
 import { Product } from '@/components/Card/Card.type'
 import { Category } from '@/components/SideBar/SideBar.type'
-import { CategoryResponse, DummyJSONResponse } from './ListItem.type'
 import {
   LIST_CATEGORIES_URL,
   getProductsWithPaginationURL,
   getSearchProductsURL,
   getCategoryProductsURL,
 } from '@/services/url/products'
+
+import { CategoryResponse, DummyJSONResponse } from './ListItem.type'
 
 export const useProductList = () => {
   const [products, setProducts] = useState<Product[]>([])
@@ -82,7 +84,6 @@ export const useProductList = () => {
     }
   }, [currentPage, searchQuery, categoryQuery, limit])
 
-  // Effect to fetch categories when component mounts
   useEffect(() => {
     fetchCategories()
   }, [fetchCategories])
@@ -97,14 +98,14 @@ export const useProductList = () => {
 
   const handleSearch = (query: string) => {
     setSearchQuery(query)
-    setCategoryQuery(null) // Reset category when searching
-    setCurrentPage(1) // Reset to first page when searching
+    setCategoryQuery(null)
+    setCurrentPage(1)
   }
 
   const handleCategoryChange = (category: string | null) => {
     setCategoryQuery(category)
-    setSearchQuery('') // Reset search when changing category
-    setCurrentPage(1) // Reset to first page when changing category
+    setSearchQuery('')
+    setCurrentPage(1)
   }
 
   return {

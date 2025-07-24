@@ -1,10 +1,12 @@
 'use client'
 
-import { getProductDetailsURL } from '@/services/url/products'
 import { useState, useEffect } from 'react'
-import { Product } from './DetailsItem.type'
 import { useParams } from 'next/navigation'
+
 import { useCartStore } from '@/store/cartStore'
+import { getProductDetailsURL } from '@/services/url/products'
+
+import { Product } from './DetailsItem.type'
 
 export const useProductDetails = () => {
   const { id } = useParams()
@@ -45,7 +47,6 @@ export const useProductDetails = () => {
     }
   }, [id])
 
-  // Check if product is already in cart
   useEffect(() => {
     if (product && product.id) {
       const cartItem = cartItems.find((item) => item.id === product.id)
@@ -77,7 +78,6 @@ export const useProductDetails = () => {
     console.log('Adding product to cart:', itemToAdd)
     addItem(itemToAdd)
 
-    // Log the updated cart after adding the item
     console.log('Current cart items:', [...cartItems, itemToAdd])
   }
 

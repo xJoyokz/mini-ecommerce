@@ -1,7 +1,13 @@
 import Image from 'next/image'
 import { ProductCartProps } from './ProductCart.type'
+import { useRouter } from 'next/navigation'
 
 export default function ProductCart({ item, onRemove, onUpdateQuantity }: ProductCartProps) {
+  const router = useRouter()
+
+  const backToDetails = () => {
+    router.push(`/details/${item?.id}`)
+  }
   return (
     <div className='relative rounded-lg p-4'>
       <div className='absolute top-4 right-6 cursor-pointer text-gray-500 hover:text-gray-700'>
@@ -35,7 +41,8 @@ export default function ProductCart({ item, onRemove, onUpdateQuantity }: Produc
               alt={item.title || ''}
               width={300}
               height={300}
-              className='w-full rounded-md border border-gray-200 object-cover'
+              className='w-full cursor-pointer rounded-md border border-gray-200 object-cover'
+              onClick={backToDetails}
             />
             <div className='pt-2'>
               <div className='mb-1 text-xs text-gray-500'>
@@ -45,7 +52,12 @@ export default function ProductCart({ item, onRemove, onUpdateQuantity }: Produc
                   : 'Product'}
               </div>
               <div className='flex items-center justify-between'>
-                <p className='text-base font-medium text-black'>{item.title}</p>
+                <p
+                  className='cursor-pointer text-base font-medium text-black'
+                  onClick={backToDetails}
+                >
+                  {item.title}
+                </p>
                 <p className='text-base font-medium text-black'>${item.price}</p>
               </div>
             </div>

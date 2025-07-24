@@ -17,18 +17,19 @@ export default function Cart() {
     handleRemoveItem,
     isChecked,
     setIsChecked,
+    navigateToPayment,
   } = useCart()
 
   return (
-    <div className='container mx-auto px-4 py-8'>
+    <div className='container mx-auto px-4 py-4'>
       <Breadcrumb />
-      <hr className='mt-2 mb-8 border-gray-200' />
+      <hr className='mt-2 mb-4 border-gray-200' />
       <div className='flex flex-col gap-6 lg:flex-row'>
         <div className='flex-grow'>
           {items.length === 0 ? (
             <div className='py-10 text-center'>
               <h2 className='mb-4 text-xl font-medium'>Your cart is empty</h2>
-              <Link href='/list' className='text-blue-600 hover:underline'>
+              <Link href='/list' className='text-orange-400 hover:underline'>
                 Continue Shopping
               </Link>
             </div>
@@ -80,7 +81,8 @@ export default function Cart() {
               </div>
               <button
                 className='w-full cursor-pointer rounded bg-black py-3 text-white hover:bg-gray-800 disabled:cursor-not-allowed disabled:bg-gray-400'
-                disabled={!isChecked}
+                disabled={!isChecked || items.length === 0}
+                onClick={navigateToPayment}
               >
                 Continue
               </button>
