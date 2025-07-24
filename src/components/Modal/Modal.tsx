@@ -38,7 +38,7 @@ export const Modal: React.FC<ModalProps> = ({
     if (showLogoInHeader) {
       return (
         <div className='flex items-center gap-3'>
-          <Image src='/img/Logo.png' alt='Logo' width={logoWidth} height={logoHeight} />
+          <Image src='/img/logo.png' alt='Logo' width={logoWidth} height={logoHeight} />
         </div>
       )
     }

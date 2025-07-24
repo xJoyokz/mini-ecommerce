@@ -53,7 +53,7 @@ export default function Payment() {
   }
 
   return (
-    <div className='container mx-auto px-4 py-8'>
+    <div className='container mx-auto px-4 py-4'>
       <Breadcrumb />
       <hr className='mt-2 mb-4 border-gray-200' />
       <div className='mx-auto max-w-6xl p-4'>
@@ -229,7 +229,7 @@ export default function Payment() {
         onClose={() => setIsImageModalOpen(false)}
         description='Payment Successful'
         subDescription='Thank you! Your payment was successful.'
-        imageSrc='/img/payment-success.svg'
+        imageSrc='/img/success.png'
         imageAlt='Payment Success'
         imageWidth={150}
         imageHeight={150}
