@@ -41,7 +41,7 @@ export default function ProductCart({ item, onRemove, onUpdateQuantity }: Produc
               alt={item.title || ''}
               width={300}
               height={300}
-              className='w-full rounded-md border border-gray-200 object-cover'
+              className='w-full cursor-pointer rounded-md border border-gray-200 object-cover'
               onClick={backToDetails}
             />
             <div className='pt-2'>
@@ -52,7 +52,10 @@ export default function ProductCart({ item, onRemove, onUpdateQuantity }: Produc
                   : 'Product'}
               </div>
               <div className='flex items-center justify-between'>
-                <p className='text-base font-medium text-black' onClick={backToDetails}>
+                <p
+                  className='cursor-pointer text-base font-medium text-black'
+                  onClick={backToDetails}
+                >
                   {item.title}
                 </p>
                 <p className='text-base font-medium text-black'>${item.price}</p>

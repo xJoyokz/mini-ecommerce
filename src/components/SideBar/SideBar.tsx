@@ -5,7 +5,6 @@ import { SideBarProps } from './SideBar.type'
 
 const { Title } = Typography
 
-// Custom expand icon component
 const ExpandIcon = ({ isActive }: { isActive?: boolean }) => (
   <svg
     xmlns='http://www.w3.org/2000/svg'
@@ -35,16 +34,13 @@ const Sidebar: React.FC<SideBarProps> = ({
   }, [categories])
 
   const handleCategoryChange = (e: CheckboxChangeEvent, categoryValue: string) => {
-    // If this category is already selected, deselect it
     if (selectedCategory === categoryValue) {
       onCategoryChange(null)
     } else {
-      // Otherwise select the new category
       onCategoryChange(categoryValue)
     }
   }
 
-  // Define the items for the Collapse component
   const collapseItems = [
     {
       key: 'category',
